@@ -47,7 +47,7 @@ class TestControllerTest {
     public void getAllMembers() throws Exception {
 
         //given
-        final String url = "/test";
+        final String url = "/api/test";
         Member saveMember = memberRepository.save(new Member(1L,"홍길동"));
 
         //when
