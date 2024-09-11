@@ -30,6 +30,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok' //롬복 의존성도 함께 추가 필요.
     annotationProcessor 'org.projectlombok:lombok'
 
+    //swagger ui
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.4.0'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
