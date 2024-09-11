@@ -111,9 +111,17 @@ class BlogServiceTest {
         when(blogRepository.findById(notExistedId)).thenReturn(Optional.empty());
 
         //when & then
-        assertThatThrownBy(() -> blogService.findById(notExistedId))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("not found : " + notExistedId);
+        //방법1.
+//        assertThatThrownBy(() -> blogService.findById(notExistedId))
+//                .isInstanceOf(IllegalArgumentException.class)
+//                .hasMessage("not found : " + notExistedId);
+
+        //방법2.
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            blogService.findById(notExistedId);
+        });
+        assertTrue(exception.getMessage().contains("not found : " + notExistedId));
+
 
         verify(blogRepository, times(1)).findById(notExistedId);
 
